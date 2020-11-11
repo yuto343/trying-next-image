@@ -2,122 +2,49 @@ import styles from "../styles.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import ViewSource from "../components/view-source";
+import Intrinsic from "./layout-intrinsic";
 
 const Code = (p) => <code className={styles.inlineCode} {...p} />;
 
 const Index = () => (
-  <div className={styles.container}>
-    <ViewSource pathname='pages/index.js' />
-    <div className={styles.card}>
-      <h1>Image Component with Next.js</h1>
-      <p>
-        The images below use the{" "}
-        <a href='https://nextjs.org/docs/api-reference/next/image'>
-          next/image
-        </a>{" "}
-        component to ensure optimal format and size for this browser.
-      </p>
-      <p>
-        Images are also lazy loaded by default which means they don't load until
-        scrolled into view.
-      </p>
-      <p>Try scolling down to try it out!</p>
-      <hr className={styles.hr} />
-      <p>
-        The following is an example of a reference to an interal image from the{" "}
-        <Code>public</Code> directory.
-      </p>
-      <p>
-        Notice that the image is responsive. As you adjust your browser width, a
-        different sized image is loaded.
-      </p>
-      <Image
-        alt='newyork'
-        src='/newyork.jpg'
-        width={5304}
-        height={7952}
-        layout='responsive'
-      />
-      <Image
-        alt='newyork'
-        src='/newyork.jpg'
-        width={1060}
-        height={1600}
-        layout='intrinsic'
-      />
-      <Image
-        alt='timez square'
-        src='/timez-square.jpg'
-        width={3888}
-        height={2592}
-        layout='responsive'
-      />
-      <hr className={styles.hr} />
-      <p>
-        The following is an example of a reference to an external image at{" "}
-        <Code>assets.vercel.com</Code>.
-      </p>
-      <p>
-        External domains must be configured in <Code>next.config.js</Code> using
-        the <Code>domains</Code> property.
-      </p>
-      <Image
-        alt='Next.js logo'
-        src='https://assets.vercel.com/image/upload/v1538361091/repositories/next-js/next-js-bg.png'
-        width={1200}
-        height={400}
-      />
-      <Image
-        alt='empire state building'
-        src='https://images.pexels.com/photos/472037/pexels-photo-472037.jpeg'
-        width={1200}
-        height={400}
-      />
-      <hr className={styles.hr} />
-      <h2>Layouts</h2>
-      <p>
-        The following pages demonstrate possible <Code>layout</Code> property
-        values.
-      </p>
-      <p>
-        Click on one to try it out with your current device and be sure to
-        change the window size or rotate your device to see how the image
-        reacts.
-      </p>
-      <ul>
-        <li>
-          <Link href='/layout-intrinsic'>
-            <a>layout="intrinsic"</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/layout-responsive'>
-            <a>layout="responsive"</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/layout-fixed'>
-            <a>layout="fixed"</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/layout-fill'>
-            <a>layout="fill"</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/background'>
-            <a>background demo</a>
-          </Link>
-        </li>
-      </ul>
-      <hr className={styles.hr} />
-      Checkout the documentation for{" "}
-      <a href='https://nextjs.org/docs/basic-features/image-optimization'>
-        Image Optimization
-      </a>{" "}
-      to learn more.
-    </div>
+  <div>
+    <p>layout="responsive"</p>
+    <Image
+      alt='newyork'
+      src='/newyork.jpg'
+      width={5304}
+      height={7952}
+      layout='responsive'
+    />
+    <Image
+      alt='timez square'
+      src='/timez-square.jpg'
+      width={3888}
+      height={2592}
+      layout='responsive'
+    />
+    <p>同じ画像でlayout="Intrinsic"</p>
+    <Image
+      alt='newyork'
+      src='/newyork.jpg'
+      width={1060}
+      height={1600}
+      layout='intrinsic'
+    />
+    <p>外部イメージ</p>
+    <Image
+      alt='Next.js logo'
+      src='https://assets.vercel.com/image/upload/v1538361091/repositories/next-js/next-js-bg.png'
+      width={1200}
+      height={400}
+    />
+    <Image
+      alt='empire state building'
+      src='https://images.pexels.com/photos/472037/pexels-photo-472037.jpeg'
+      width={1000}
+      height={1200}
+      layout='responsive'
+    />
   </div>
 );
 
