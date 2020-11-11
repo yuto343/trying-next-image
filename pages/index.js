@@ -50,6 +50,7 @@ const Index = () => (
         src='/timez-square.jpg'
         width={3888}
         height={2592}
+        layout='responsive'
       />
       <hr className={styles.hr} />
       <p>
